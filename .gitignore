@@ -1,0 +1,4 @@
+scripting/compiled/
+plugins/
+.vscode
+.DS_Store
