@@ -69,7 +69,7 @@ int GetClientFromAuthId(int authId) {
     for (int i = 1; i <= MaxClients; i++) {
         char authStr[MAX_AUTHID_LENGTH];
         if (IsClientInGame(i) && GetClientAuthId(i, AuthId_Steam3, authStr, sizeof(authStr))) {
-            if (StrContains(authStr, targetAuthIdStr)) {
+            if (StrContains(authStr, targetAuthIdStr) != -1) {
                 return i;
             }
         }
