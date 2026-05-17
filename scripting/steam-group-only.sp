@@ -19,7 +19,7 @@ public void OnPluginStart() {
     cvarEnable = CreateConVar("sm_steam_group_only_enable", "1", "Only allows Steam group members to join the server.");
     cvarSteamGroup = FindConVar("sv_steamgroup");
     if (cvarSteamGroup == null) {
-        cvarSteamGroup = CreateConVar("sm_steam_group_only_steamgroup", "", "The ID of the Steam group the server should use.");
+        cvarSteamGroup = CreateConVar("sm_steam_group_only_steamgroup", "", "The ID of the Steam group the server should use.", FCVAR_NOTIFY);
     }
     cvarKickMessage = CreateConVar("sm_steam_group_only_kick_msg", "", "Custom kick message when a user is not in the Steam group.");
 
