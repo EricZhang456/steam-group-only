@@ -55,7 +55,7 @@ public int SteamWorks_OnClientGroupStatus(int authid, int groupid, bool isMember
         cvarKickMessage.GetString(kickMsg, sizeof(kickMsg));
         TrimString(kickMsg);
         if (!strlen(kickMsg)) {
-            strcopy(kickMsg, sizeof(kickMsg), "Client not in Steam group.");
+            strcopy(kickMsg, sizeof(kickMsg), "Client not in Steam group");
         }
         KickClient(client, kickMsg);
     }
