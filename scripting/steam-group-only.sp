@@ -32,6 +32,8 @@ public void OnPluginStart() {
 
     RegAdminCmd("sm_reload_steam_group_whitelist", Cmd_WhitelistReload, ADMFLAG_CONFIG, "Reloads the Steam ID whitelist");
 
+    steamIdWhitelist = new ArrayList(ByteCountToCells(MAX_AUTHID_LENGTH));
+
     AutoExecConfig();
 }
 
@@ -45,9 +47,7 @@ public Action Cmd_WhitelistReload(int client, int args) {
 }
 
 void LoadWhitelist() {
-    if (steamIdWhitelist == null) {
-        steamIdWhitelist = new ArrayList(ByteCountToCells(MAX_AUTHID_LENGTH));
-    } else {
+    if (steamIdWhitelist.Length) {
         steamIdWhitelist.Clear();
     }
 
