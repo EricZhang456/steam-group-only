@@ -64,12 +64,9 @@ public int SteamWorks_OnClientGroupStatus(int authid, int groupid, bool isMember
 }
 
 int GetClientFromAuthId(int authId) {
-    char targetAuthIdStr[MAX_AUTHID_LENGTH];
-    IntToString(authId, targetAuthIdStr, sizeof(targetAuthIdStr));
     for (int i = 1; i <= MaxClients; i++) {
-        char authStr[MAX_AUTHID_LENGTH];
-        if (IsClientInGame(i) && GetClientAuthId(i, AuthId_Steam3, authStr, sizeof(authStr))) {
-            if (StrContains(authStr, targetAuthIdStr) != -1) {
+        if (IsClientInGame(i)) {
+            if (GetSteamAccountID(i) == authId) {
                 return i;
             }
         }
