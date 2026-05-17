@@ -63,12 +63,10 @@ void LoadWhitelist() {
         char line[MAX_AUTHID_LENGTH];
         whitelistFile.ReadLine(line, sizeof(line));
         TrimString(line);
-        LogMessage("line: %s", line);
         if (!strlen(line)) {
             continue;
         }
         if (line[0] == '#') {
-            LogMessage("skipping %s", line);
             continue;
         }
         steamIdWhitelist.PushString(line);
