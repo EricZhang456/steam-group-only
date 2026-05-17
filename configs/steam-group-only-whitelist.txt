@@ -1,0 +1,2 @@
+# a list of steam3 steamids to be whitelisted
+[U:1:8307981]
