@@ -18,9 +18,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v6
-      
-      - name: Make include directory
-        run: mkdir scripting/include
 
       - name: Setup SourceMod
         run: |
