@@ -88,21 +88,21 @@ public void OnClientPostAdminCheck(int client) {
     SteamWorks_GetUserGroupStatus(client, cvarSteamGroup.IntValue);
 }
 
-public int SteamWorks_OnClientGroupStatus(int authid, int groupid, bool isMember, bool isOfficer) {
+public void SteamWorks_OnClientGroupStatus(int authid, int groupid, bool isMember, bool isOfficer) {
     if (!cvarEnable.BoolValue) {
-        return 0;
+        return;
     }
     if (groupid != cvarSteamGroup.IntValue) {
-        return 0;
+        return;
     }
 
     if (!isMember) {
         int client = GetClientFromAuthId(authid);
         if (client == -1) {
-            return 0;
+            return;
         }
         if (cvarWhitelistEnable.BoolValue && IsClientInWhitelist(client)) {
-            return 0;
+            return;
         }
 
         char kickMsg[BASE_STR_LEN];
@@ -113,8 +113,6 @@ public int SteamWorks_OnClientGroupStatus(int authid, int groupid, bool isMember
         }
         KickClient(client, kickMsg);
     }
-
-    return 0;
 }
 
 int GetClientFromAuthId(int authId) {
